@@ -356,7 +356,7 @@ if __name__ == "__main__":
     # network_generator.create_network_model(graph_network, "test1.inp")
     # network_generator.create_network_model_array(40, "model")
     # network_generator.create_network_model_data_array("model", 10)
-    model = Model("models/DMA_03809v4x.INP")
+    model = Model("DMA_03809v4x.INP")
     # results = model.simulate_network_EPANET()
     # print(model.get_pressure_at_node("40918044_28600378"))
     # model.save_pressure("40918044_28600378")
