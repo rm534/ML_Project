@@ -42,6 +42,30 @@ def read_data(data_len):
     dataset = np.array(dataset_list_total)
     #print(dataset.shape)
     return dataset
+    
+def compose_data_comparison(location, DMA):
+	# access simulated data frames and read dataframes as lists
+	sim_dfs, real_dfs = read_data_list(DMA)
+		for i in range (0, len(MEASUREMENT_NODES_2)):
+			# find first and last timestamp from real_dfs
+			# TODO: timestamp of real data might vary from simulated data, verify this...
+			start = real_dfs[i]["DateTime"].to_list()[0]
+			end = real_dfs[i]["DateTime"].to_list()[-1]
+			# find index of sim DateTime for starting value of real
+			DateTime = sim_dfs[i]["DateTime"].to_list()
+			start_ind = DateTime.index(start)
+			end_ind = DateTime.index(end)
+			DateTime = DateTime[start_ind:end_ind]
+			pressure_real = real_dfs[i]["Pressure"].to_list()
+			pressure_sim = sim_dfs[i]["Pressure"].to_list()[start_ind:end_ind]
+			diff = []
+			for j in range(0,len(DateTime)):
+					diff.append(pressure_real[j]-pressure_sim[j])
+			
+			# create a dataframe that incorporates all the data real and simulated for the same timeframe
+			var_dfs = pd.DataFrame({"DateTime":DateTime, "Pressure_r":pressure_real, "Pressure_s":pressure_sim, "difff":diff})
+			# Save to disk
+			var_dfs.to_csv(r'{}/{}_difference.csv'.format(location, model.MEASUREMENT_NODES_2[i]), index=True, header=True)
 
 def compose_data_comparison(location, DMA):
 	# access simulated data frames and read dataframes as lists

@@ -7,8 +7,7 @@ import math
 import logging
 import time
 import pandas as pd
-import threading
-import concurrent.futures
+
 
 logging.basicConfig(level=logging.INFO)
 
