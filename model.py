@@ -359,7 +359,7 @@ if __name__ == "__main__":
     # results = model.simulate_network_EPANET()
     # print(model.get_pressure_at_node("40918044_28600378"))
     # model.save_pressure("40918044_28600378")
-    model.create_dataset(800, MEASUREMENT_NODES_2, location="DATASETS_SIM")
+    model.create_dataset(80000, MEASUREMENT_NODES_2, location="DATASETS_SIM")
 
     # create_datasets(12, 1)
 # model.print_graph()
