@@ -46,7 +46,7 @@ def read_data(data_len):
 def compose_data_comparison(location, DMA):
 	# access simulated data frames and read dataframes as lists
 	sim_dfs, real_dfs = read_data_list(DMA)
-		for i in range (0, len(MEASUREMENT_NODES_2)):
+	for i in range (0, len(MEASUREMENT_NODES_2)):
 			# find first and last timestamp from real_dfs
 			# TODO: timestamp of real data might vary from simulated data, verify this...
 			start = real_dfs[i]["DateTime"].to_list()[0]
