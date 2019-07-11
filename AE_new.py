@@ -144,6 +144,6 @@ class AutoEncoder():
         plt.show()
 if __name__ == "__main__":
     AE = AutoEncoder([18, 512, 256, 128, 256, 512, 18], title="simulation_data_model1")
-    AE.train_model(epochs=500, training_data_len=75, batch_size=256, data_len=80)
+    AE.train_model(epochs=500, training_data_len=7500, batch_size=256, data_len=8000)
     #AE.test_model([18, 22, 22, 18, 22, 22,18, 22, 22,18, 22, 22,18, 22, 22,18, 22, 22])
     
