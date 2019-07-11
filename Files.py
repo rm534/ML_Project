@@ -28,9 +28,9 @@ def read_data(data_len):
     data_size = data_len
     for element in model.MEASUREMENT_NODES_2:
         if model.MEASUREMENT_NODES_2.index(element) == 0:
-            data_read.append(read_time_data('/Users/Robin/Desktop/ML Project/Code/DATASETS_SIM/{}.csv'.format(element), data_len))
+            data_read.append(read_time_data('DATASETS_SIM/{}.csv'.format(element), data_len))
         data_read.append(
-            read_csv('/Users/Robin/Desktop/ML Project/Code/DATASETS_SIM/{}.csv'.format(element), data_len)[
+            read_csv('DATASETS_SIM/{}.csv'.format(element), data_len)[
                 "Pressure"].to_list())
 
     for i in range(0, data_size):
