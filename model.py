@@ -202,11 +202,14 @@ class Model():
         print(std)
 
         for days in range(0, days):
-            results.append(result)
+          #  results.append(result)
+            results.extend(result)
         print(results[0])
-        for element in results:
-            for item in element:
-                results_pressure.append(item + np.random.normal(0, std))
+       # for element in results:
+        #    for item in element:
+         #       results_pressure.append(item + np.random.normal(0, std))
+        
+        results_pressure = list(lambda x: x+np.random.normal(0, std), results)
         print(results_pressure)
         df = pd.DataFrame({"DateTime": dates_str, "Pressure": results_pressure})
         # sd = df.std()
