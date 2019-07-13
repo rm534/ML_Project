@@ -204,7 +204,7 @@ class Model():
         for days in range(0, days):
           	#  results.append(result)
 						results.extend(result)
-	          if days %800:
+	          if days % 800:
 	          		results_pressure = list(lambda x: x+np.random.normal(0, std), results)
 								print(results_pressure)
 		        		df = pd.DataFrame({"DateTime": dates_str, "Pressure": results_pressure})
