@@ -202,20 +202,20 @@ class Model():
         print(std)
 
         for days in range(0, days):
-          	#  results.append(result)
+						#  results.append(result)
 						results.extend(result)
-	          if days % 800:
-	          		results_pressure = list(lambda x: x+np.random.normal(0, std), results)
+						if days % 800 == 0:
+								results_pressure = list(lambda x: x+np.random.normal(0, std), results)
 								print(results_pressure)
-		        		df = pd.DataFrame({"DateTime": dates_str, "Pressure": results_pressure})
-		        		if days > 800:
-			        			with open(r'{}/{}.csv'.format(location, node), 'a') as f:
-			    							df.to_csv(f, header=False)
-		    				else:
-			        			df.to_csv(r'{}/{}.csv'.format(location, node), index=True, header=True)
-		        		results = []
+								df = pd.DataFrame({"DateTime": dates_str, "Pressure": results_pressure})
+								if days > 800:
+										with open(r'{}/{}.csv'.format(location, node), 'a') as f:
+												df.to_csv(f, header=False)
+								else:
+										df.to_csv(r'{}/{}.csv'.format(location, node), index=True, header=True)
+								results = []
             
-        """    results_pressure = list(lambda x: x+np.random.normal(0, std), results)
+	        """    results_pressure = list(lambda x: x+np.random.normal(0, std), results)
         print(results_pressure)
         df = pd.DataFrame({"DateTime": dates_str, "Pressure": results_pressure})
         print(results[0])
@@ -234,7 +234,7 @@ class Model():
         # df = pd.DataFrame(results_pressure, index=dates, columns=["Pressure"])
         
 """
-        print(df)
+        
 
     def date(self, days):
         date = ""
