@@ -188,7 +188,7 @@ class Model():
             self.create_dataset_node(days, i, location, start=start)
 
         print("Finished creating data...")
-
+				
     def create_dataset_node(self, days, node, location, start):
         import statistics
         dates = pd.date_range(start='1/1/2018', periods=97 * days, freq='15min')
@@ -205,7 +205,7 @@ class Model():
 						#  results.append(result)
 						results.extend(result)
 						if days % 800 == 0:
-								results_pressure = list(lambda x: x+np.random.normal(0, std), results)
+								results_pressure = list(map(lambda x: x+np.random.normal(0, std), results))
 								print(results_pressure)
 								df = pd.DataFrame({"DateTime": dates_str, "Pressure": results_pressure})
 								if days > 800:
