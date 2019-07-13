@@ -206,7 +206,7 @@ class Model():
 						results.extend(result)
 						if days % 800 == 0:
 								results_pressure = list(map(lambda x: x+np.random.normal(0, std), results))
-								print(results_pressure)
+								print("len of data: {} len of dates: {}".format(len(results_pressure), len(dates_str[counter*days*97:(counter+1)*days*97])))
 								df = pd.DataFrame({"DateTime": dates_str[counter*days*97:(counter+1)*days*97], "Pressure": results_pressure})
 								counter += 1
 								if days > 800:
