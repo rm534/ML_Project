@@ -215,25 +215,7 @@ class Model():
 										df.to_csv(r'{}/{}.csv'.format(location, node), index=True, header=True)
 								results = []
             
-	        """    results_pressure = list(lambda x: x+np.random.normal(0, std), results)
-        print(results_pressure)
-        df = pd.DataFrame({"DateTime": dates_str, "Pressure": results_pressure})
-        print(results[0])
-       # for element in results:
-        #    for item in element:
-         #       results_pressure.append(item + np.random.normal(0, std))
-        
-        results_pressure = list(lambda x: x+np.random.normal(0, std), results)
-        print(results_pressure)
-        df = pd.DataFrame({"DateTime": dates_str, "Pressure": results_pressure})
-        # sd = df.std()
-        # results_pressure = []
-        # for element in results:
-        #    for item in element:
-        #        results_pressure.append(item + 1.2 * np.random.normal(0, sd))
-        # df = pd.DataFrame(results_pressure, index=dates, columns=["Pressure"])
-        
-"""
+ 
         
 
     def date(self, days):
