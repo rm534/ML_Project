@@ -199,14 +199,14 @@ class Model():
         self.simulate_network_EPANET()
         result = self.get_pressure_at_node((node))
         std = statistics.stdev(result)
-        print(std)
+        #print(std)
         counter=0
         for days in range(0, days):
 						#  results.append(result)
 						results.extend(result)
 						if days % 800 == 0:
 								results_pressure = list(map(lambda x: x+np.random.normal(0, std), results))
-								print("array values: {}:{}".format(counter*days*97, (counter+1)*days*97))
+								print("array values: {},{}".format(counter*days*97, (counter+1)*days*97))
 								print("len of data: {} len of dates: {}".format(len(results_pressure), len(dates_str[counter*days*97:(counter+1)*days*97])))
 								df = pd.DataFrame({"DateTime": dates_str[counter*days*97:(counter+1)*days*97], "Pressure": results_pressure})
 								counter += 1
