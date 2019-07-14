@@ -200,7 +200,8 @@ class Model():
         result = self.get_pressure_at_node((node))
         std = statistics.stdev(result)
         #print(std)
-        counter=0
+        counter1=0
+        counter2=1
         for days in range(0, days):
 						#  results.append(result)
 						results.extend(result)
@@ -208,9 +209,10 @@ class Model():
 								results_pressure = list(map(lambda x: x+np.random.normal(0, std), results))
 								
 								print("len of data: {} len of dates: {}".format(len(results_pressure), len(dates_str[counter*days*97:(counter+1)*days*97])))
-								print("array values: {},{}".format(counter*days*97, (counter+1)*days*97))
+								print("array values: {},{}".format(counter1*days*97, (counter2)*days*97))
 								df = pd.DataFrame({"DateTime": dates_str[counter*days*97:(counter+1)*days*97], "Pressure": results_pressure})
-								counter += 1
+								counter1 += 1
+								counter2 += 1
 								if days > 800:
 										with open(r'{}/{}.csv'.format(location, node), 'a') as f:
 												df.to_csv(f, header=False)
