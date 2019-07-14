@@ -209,6 +209,7 @@ class Model():
 								results_pressure = list(map(lambda x: x+np.random.normal(0, std), results))
 								
 								print("len of data: {} len of dates: {}".format(len(results_pressure), len(dates_str[counter1*days*97:(counter2)*days*97])))
+								print("days: {}".format(days))
 								print("array values: {},{}".format(counter1*days*97, (counter2)*days*97))
 								df = pd.DataFrame({"DateTime": dates_str[counter1*days*97:(counter2)*days*97], "Pressure": results_pressure})
 								counter1 += 1
